@@ -1,5 +1,13 @@
 (function($){
-	$.postJSON = function(url,data){
+	if(!$.ke){
+		//$.ke={}
+		$.extend({ke:{
+
+		}})
+	}
+
+	$.extend($.ke,{
+	postJSON = function(url,data){
 		if(typeof data!="string"){
 			data = JSON.stringify(data);
 		}
@@ -9,5 +17,6 @@
 			data:data,
 			contentType:"application/json"
 		})
-	};
+	}
+});
 })(jQuery)
