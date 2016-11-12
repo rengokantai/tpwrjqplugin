@@ -1,7 +1,7 @@
 (function($){
-	$.fn.accordion = function(options){
-
-		var settings = $.extend({
+	var methods = {
+		init:function(options){
+			var settings = $.extend({
 
 		},$.fn.accordion.defaults, options)
 		this.find("h3").addClass("accordion-header")
@@ -25,6 +25,19 @@
 			next.attr("data-active",true).slideToggle();
 		})
 		return this;
+		},
+		expand:function(){
+			return this;
+		},
+		collapse:function(){
+			return this;
+		}
+	};
+	$.fn.accordion = function(options){
+		if (methods[options]){
+			return methods[options].call(this);
+		}
+		return methods.init.call(this);
 	};
 
 
