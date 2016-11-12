@@ -27,9 +27,13 @@
 		return this;
 		},
 		expand:function(){
+			this.find(".accordion-panel")
+			.attr("data-active",true)
+			.slideDown();
 			return this;
 		},
 		collapse:function(){
+			$this.find("[data-active]").removeAttr("data-active").slideUp();
 			return this;
 		}
 	};
