@@ -17,6 +17,10 @@
 
 			if(settings.distinct){
 				$this.find("[data-active]").removeAttr("data-active").slideToggle();
+
+				if(isActive){
+					return;
+				}
 			}
 			next.attr("data-active",true).slideToggle();
 		})
